@@ -1,0 +1,29 @@
+#!/bin/bash
+
+CONFIG_SRC_DIR=~/Documents/configuration/src
+PACKAGE_INSTALL_DIR=~/lib/npm
+
+# Creating package install dir if it doesn't exist
+mkdir -p $PACKAGE_INSTALL_DIR
+
+# Cloning the .npm config repo and symlinking it
+if [ ! -d $CONFIG_SRC_DIR/.npm ]; then
+    git clone https://github.com/CaptainQuirk/.npm.git $CONFIG_SRC_DIR/.npm
+    ln -s ~/$CONFIG_SRC_DIR/.npm/npmrc ~/.npmrc
+fi
+
+# Updating config repo
+cd $CONFIG_SRC_DIR/.npm
+git pull
+cd -
+
+# Install yarn and setting prefix to install dir
+brew install yarn
+yarn config set prefix $PACKAGE_INSTALL_DIR
+
+# Install packages
+
+# TODO call a function to install with yarn
+yarn global add grunt-cli --save
+
+
