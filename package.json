@@ -1,0 +1,4 @@
+{
+  "name": "hillaryklingon/node-recipe",
+  "description": "Installs node, npm and yarn"
+}
