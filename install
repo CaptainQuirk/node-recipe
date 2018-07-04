@@ -23,6 +23,9 @@ yarn config set prefix $PACKAGE_INSTALL_DIR
 
 # Install packages
 
+
+# TODO call a function to install with yarn
+
 yarn global add grunt-cli --save
 
 
