@@ -13,12 +13,12 @@ if [ ! -d $CONFIG_SRC_DIR/.npm ]; then
 fi
 
 # Updating config repo
-cd $CONFIG_SRC_DIR/.npm
+cd $CONFIG_SRC_DIR/.npm || exit 1
 git pull
-cd -
+cd - || exit 1
 
 # Install yarn and setting prefix to install dir
-brew install yarn
+shef brew yarn
 yarn config set prefix $PACKAGE_INSTALL_DIR
 
 # Install packages
